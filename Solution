@@ -1,0 +1,17 @@
+class Solution:
+        
+    def maxLength(self, arr: List[str]) -> int:
+        l=['']
+        max_element=0
+        for i in arr:
+            for j in l:
+                if(Solution.isvalid(i) & Solution.isvalid(j)):
+                    tmp=i+j
+                    if(Solution.isvalid(tmp)):
+                        l.append(tmp)      
+                        max_element=max(max_element,len(tmp))
+        return max_element
+       
+    def isvalid(s):
+        return len(s) == len(set(s))
+        
